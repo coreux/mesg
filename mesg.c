@@ -68,7 +68,7 @@ usage(void)
 int
 main(int argc, char **argv)
 {	
-	int opt;
+	int ch, opt;
 	const char *t, *tty;
 	struct stat sbuf;
 
@@ -88,15 +88,21 @@ main(int argc, char **argv)
 		}
 		argv[0] = (char *) short_program_name;
 	}
+	while(-1 != (ch = getopt(argc, argv, "")))
+	{
+		/* No options are permitted */
+		usage();
+		exit(2);
+	}
 	opt = -1;
-	if(argc > 2)
+	if(argc - optind > 1)
 	{
 		usage();
 		exit(2);
 	}	
-	if(argc == 2)
+	if(argc - optind == 1)
 	{
-		switch(argv[1][0])
+		switch(argv[optind][0])
 		{
 		case 'y':
 			opt = 0;
