@@ -1,0 +1,96 @@
+'\" t
+.\"     Title: mesg
+.\"    Author: Mo McRoberts
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/03/2012
+.\"    Manual: User Commands
+.\"    Source: System Manager's Manual
+.\"  Language: English
+.\"
+.TH "MESG" "1" "09/03/2012" "System Manager's Manual" "User Commands"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+mesg \- permit or deny messages
+.SH "SYNOPSIS"
+.HP \w'\fBmessage\fR\ 'u
+\fBmessage\fR [\fBy\ |\ n\fR]
+.SH "DESCRIPTION"
+.PP
+The
+\fBmesg\fR
+utility sets or displays the messaging status of the controlling terminal\&.
+.PP
+The
+\fBmesg\fR
+operates on the first of standard input, standard output and standard error which is associated with terminal device\&.
+.SH "OPTIONS"
+.PP
+\fBy\fR
+.RS 4
+Allow other users to send messages to the controlling terminal\&.
+.RE
+.PP
+\fBn\fR
+.RS 4
+Prevent other users from sending messages to the controlling terminal\&.
+.RE
+.PP
+If no options are specified,
+\fBmesg\fR
+writes the current messaging status to standard output\&.
+.SH "DIAGNOSTICS"
+.PP
+The following error values are returned:
+.\" line length increase to cope w/ tbl weirdness
+.ll +(\n(LLu * 62u / 100u)
+.TS
+ll.
+\fIError value\fR	\fIDiagnostic\fR
+T{
+\fB0\fR
+T}	T{
+Successful completion, messages are permitted\&.
+T}
+T{
+\fB1\fR
+T}	T{
+Successful completion, messages are denied\&.
+T}
+T{
+\fB>1\fR
+T}	T{
+An error occurred\&.
+T}
+.TE
+.\" line length decrease back to previous value
+.ll -(\n(LLu * 62u / 100u)
+.sp
+.SH "STANDARDS"
+.PP
+The
+\fBmesg\fR
+utility conforms to the
+Single UNIX Specification, Version 3 (SUSv3)\&.
+.SH "SEE ALSO"
+.PP
+
+\fBtalk\fR(1),
+\fBwrite\fR(1)\&.
