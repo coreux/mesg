@@ -29,7 +29,7 @@
   
   <refsynopsisdiv>
 	<cmdsynopsis>
-	  <command>message</command>
+	  <command>mesg</command>
 	  <arg choice="opt"><option>y | n</option></arg>
 	</cmdsynopsis>
   </refsynopsisdiv>
