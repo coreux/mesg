@@ -1,4 +1,4 @@
-$ Message catalogue for mesg(1) in the "C" (POSIX) locale
+$ Message catalogue for mesg(1) in the en_GB locale
 
 1 Usage: %s [y|n]
 
