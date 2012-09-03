@@ -16,9 +16,10 @@ m4_pattern_forbid([^UX_])dnl
 
 AC_DEFUN([UX_BUILD_DOCS],[
 AC_ARG_ENABLE([docs],[AS_HELP_STRING([--disable-docs],[disable re-building documentation (default=auto)])],[build_docs=$enableval],[build_docs=auto])
-
+XML2MAN=true
+XML2HTML=true
 if test x"$build_docs" = x"yes" || test x"$build_docs" = x"auto" ; then
-   AC_CHECK_PROGS([XSLTPROC],[xsltproc],[true])
+   AC_CHECK_PROGS([XSLTPROC],[xsltproc],[false])
    if test x"$XSLTPROC" = x"false" ; then
    	  if test x"$build_docs" = x"yes" ; then
 	  	 AC_MSG_ERROR([re-building documentation was requested, but the xsltproc utility cannot be found])
