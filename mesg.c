@@ -40,6 +40,11 @@
 # include <nl_types.h>
 #endif
 
+#define MESG_MSG_USAGE                  1
+#define MESG_MSG_NOTERM                 2
+#define MESG_MSG_YES                    3
+#define MESG_MSG_NO                     4
+
 static const char *short_program_name = "mesg";
 
 #ifdef ENABLE_NLS
@@ -56,7 +61,7 @@ static nl_catd msgcat;
 static void
 usage(void)
 {
-	fprintf(stderr, _(1, "Usage: %s [y|n]"), short_program_name);
+	fprintf(stderr, _(MESG_MSG_USAGE, "Usage: %s [y|n]"), short_program_name);
 	fputc('\n', stderr);
 }
 
@@ -108,7 +113,7 @@ main(int argc, char **argv)
 	   (NULL == (tty = ttyname(STDOUT_FILENO))) &&
 	   (NULL == (tty = ttyname(STDERR_FILENO))))
 	{
-		fprintf(stderr, "%s: %s\n", short_program_name, _(2, "cannot determine terminal name"));
+		fprintf(stderr, "%s: %s\n", short_program_name, _(MESG_MSG_NOTERM, "cannot determine terminal name"));
 		exit(2);
 	}	
 	if(-1 == stat(tty, &sbuf))
@@ -120,10 +125,10 @@ main(int argc, char **argv)
 	{
 		if(sbuf.st_mode & S_IWGRP)
 		{
-			puts(_(3, "is y"));
+			puts(_(MESG_MSG_YES, "is y"));
 			return 0;
 		}
-		puts(_(4, "is n"));
+		puts(_(MESG_MSG_NO, "is n"));
 		return 1;
 	}
 	if(0 == opt)

@@ -25,14 +25,13 @@ UX_BUILD_DOCS
 UX_ENABLE_NLS
 
 if test x"$build_nls" = x"yes" ; then
-   NLS_SUBDIRS="C en_GB"
+   NLS_SUBDIRS="en_GB"
 fi
 AC_SUBST([NLS_SUBDIRS])
 
 AC_CHECK_HEADERS([unistd.h sys/types.h sys/stat.h errno.h])
 
 AC_CONFIG_FILES([Makefile
-C/Makefile
 en_GB/Makefile
 ])
 
